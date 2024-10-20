@@ -46,7 +46,8 @@ const Player = () => {
     const nextSong = () => {
         setCount(count + 1);
        if(count >= 5){
-        setCount(0)
+        setCount(0);
+        setPlayPauseButton("fa-solid fa-play")
        }
     } 
  
@@ -83,7 +84,11 @@ const Player = () => {
  }
    
      
-      
+      useEffect(()=>{
+        if(currentSong.current.duration === currentSong.current.currentTime){
+          setCount(count + 1)
+        }
+      })
        
       
     
